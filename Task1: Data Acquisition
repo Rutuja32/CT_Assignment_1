@@ -1,0 +1,34 @@
+Query1: 
+SELECT max (ViewCount) FROM posts;            --to get maximum viewcount result:10062790
+
+Query2: 
+SELECT top 50000 posts.Id, posts.Score, posts.ViewCount, posts.OwnerUserId, posts.OwnerDisplayName, posts.Title, posts.Body, posts.Tags, Users.Id, Users.DisplayName
+FROM posts
+LEFT JOIN Users ON posts.OwnerUserId = Users.Id
+where posts.ViewCount < 10062790              -- max viewcount from query1
+ORDER BY posts.ViewCount DESC;
+
+Query3:
+SELECT top 50000 posts.Id,posts.Score,posts.ViewCount,posts.OwnerUserId,
+posts.OwnerDisplayName,posts.Title,posts.Body,posts.Tags,Users.Id, Users.DisplayName
+FROM posts
+LEFT JOIN Users ON posts.OwnerUserId = Users.Id
+where posts.ViewCount < 127754                -- max viewcount from query2
+ORDER BY posts.ViewCount desc;
+
+Query4:
+SELECT top 50000 posts.Id,posts.Score,posts.ViewCount,posts.OwnerUserId,
+posts.OwnerDisplayName,posts.Title,posts.Body,posts.Tags,Users.Id, Users.DisplayName
+FROM posts
+LEFT JOIN Users ON posts.OwnerUserId = Users.Id
+where posts.ViewCount < 74785               -- max viewcount from query3
+ORDER BY posts.ViewCount desc;
+
+Query5:
+SELECT top 50000 posts.Id,posts.Score,posts.ViewCount,posts.OwnerUserId,
+posts.OwnerDisplayName,posts.Title,posts.Body,posts.Tags,Users.Id, Users.DisplayName
+FROM posts
+LEFT JOIN Users ON posts.OwnerUserId = Users.Id
+where posts.ViewCount < 53347               -- max viewcount from query4
+ORDER BY posts.ViewCount desc;
+
